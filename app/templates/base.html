@@ -1,0 +1,23 @@
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Baby Details Tracker</title>
+    <nav class="navbar">
+      <a href="{{ url_for('index') }}">Home</a>
+      | <a href="{{ url_for('lastten') }}">Last Ten</a>
+      | <a href="{{ url_for('feeding') }}">Feeding</a>
+      | <a href="{{ url_for('diaper') }}">Diapers</a>
+      | <a href="{{ url_for('all_feedings') }}">All Feedings</a>
+      | <a href="{{ url_for('all_diapers') }}">All Diaper Changes</a>
+    </nav>
+  </head>
+  <body>
+    <div class="page">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+  <footer>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Baby Info Tracker</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Sean Beck</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </footer>
+</html>

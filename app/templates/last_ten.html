@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Last 10 feedings</h1>
+  <br>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Breast used</th>
+    </tr>
+    {% for f in feed %}
+    <tr>
+      <td>{{ f['time'] }}</td>
+      <td>{{ f['side']|capitalize }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <h1>Last 10 diaper changes</h1>
+  <br>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Type</th>
+    </tr>
+    {% for d in diap %}
+    <tr>
+      <td>{{ d['time'] }}</td>
+      <td>{{ d['type']|capitalize }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

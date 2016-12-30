@@ -1,0 +1,4 @@
+flask
+flask-wtforms
+flask-restful
+pymongo

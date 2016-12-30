@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+  <script>
+  function resp() {
+      if (this.status == 200)
+          alert('Added');
+      else
+          alert('Error adding, try again');
+  }
+  function wet() {
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/diaper/add', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.addEventListener('load', resp);
+    var data = {'type': 'wet'};
+    request.send(JSON.stringify(data));
+  }
+  function stinky() {
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/diaper/add', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.addEventListener('load', resp);
+    var data = {'type': 'stinky'};
+    request.send(JSON.stringify(data));
+  }
+  function left() {
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/feeding/add', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.addEventListener('load', resp);
+    var data = {'side': 'left'};
+    request.send(JSON.stringify(data));
+  }
+  function right() {
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/feeding/add', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.addEventListener('load', resp);
+    var data = {'side': 'right'};
+    request.send(JSON.stringify(data));
+  }
+  </script>
+  <h1>Diaper change</h1>
+  <br>
+  <button onclick="wet()">Wet diaper</button>
+  <button onclick="stinky()">Stinky diaper</button>
+  <br><br>
+  <h1>Feeding</h1>
+  <br>
+  <button onclick="left()">Left breast</button>
+  <button onclick="right()">Right breast</button>
+{% endblock %}

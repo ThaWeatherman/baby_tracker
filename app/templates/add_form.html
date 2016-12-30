@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="post" action="{{ action }}" class="add">
+  {{ form.hidden_tag() }}
+  {% for field in form if not field.name == 'csrf_token' %}
+    <p>
+      <b>{{ field.label }}</b>:<br>
+      {{ field }}<br>
+      {% for error in field.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+  {% endfor %}
+  <p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}
